@@ -15,7 +15,7 @@ export default function Navbar() {
         component={'nav'}
         gap={'10px'}
         alignItems={'center'}
-        bgcolor={'gray'}
+        bgcolor={'#A6B37D'}
         sx={{
           height: '60px',
           // width: {

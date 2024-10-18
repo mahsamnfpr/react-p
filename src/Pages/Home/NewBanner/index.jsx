@@ -5,39 +5,54 @@ import { EffectCoverflow, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
-import fetchData from "../../../Utilies/FetchData"
 
 import './style.css';
 
-// Replace with your actual fetchData function if defined elsewhere.
-// async function fetchData(endpoint) {
-//     const response = await fetch(`http://localhost:1337/api/${endpoint}`);
-//     const data = await response.json();
-//     return data;
-// }
+async function fetchData(endpoint) {
+    try {
+        const response = await fetch(`http://localhost:1337/api/${endpoint}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return null;
+    }
+}
 
 export default function Banner() {
     const [slides, setSlides] = useState([]);
 
     useEffect(() => {
         (async () => {
-            const res = await fetchData('sliders?populate=*'); // Fetch data
-            setSlides(res.data) // Assuming res.data contains the array of sliders
-            
+            const res = await fetchData('sliders?populate=*');
+            console.log('API response:', res);  // Log the API response
+            if (res && res.data) {
+                setSlides(res.data);
+            } else {
+                console.log('No valid data received from API.');
+            }
         })();
     }, []);
 
-    const items = slides.map((slide, index) => (
-        <SwiperSlide key={index}>
-            {/* Use the full URL to display the image */}
-            {slide?.attributes?.images?.data?.[0]?.attributes?.url && (
-                <img
-                    src={`import.meta.env.VITE_BASE_URL + ${slide.attributes.images.data[0].attributes.url}`}
-                    alt={`Slide ${index}`}
-                />
-            )}
-        </SwiperSlide>
-    ));
+    const items = slides.map((slide, index) => {
+        const imageUrl = slide.Image[0].url;
+        // slide?.attributes?.images?.data?.[0]?.attributes?.url;
+        console.log('Image URL:', `http://localhost:1337${imageUrl}`);  // Log each image URL
+
+        return (
+            <SwiperSlide key={index}>
+                {imageUrl && (
+                    <img
+                        src={`http://localhost:1337${imageUrl}`}
+                        alt={`Slide ${index}`}
+                    />
+                )}
+            </SwiperSlide>
+        );
+    });
 
     return (
         <>
@@ -57,7 +72,7 @@ export default function Banner() {
                 modules={[EffectCoverflow, Pagination]}
                 className="banner"
             >
-                {items}
+                {items.length > 0 ? items : <p>Loading slides...</p>}
             </Swiper>
         </>
     );
