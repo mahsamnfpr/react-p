@@ -1,7 +1,18 @@
-import React from 'react'
+import SignUp from "./SignUp";
+import { useState } from "react"
+import SignIn from "./SignIn";
+
 
 export default function Auth() {
+  const [pageType, setPageType] = useState('signIn')
+  const handlePageType = () => {
+    setPageType(pageType === 'signIn' ? 'signUp' : 'signIn')
+  }
   return (
-    <div>Auth</div>
+    <>
+      {
+        pageType === 'signUp' ? <SignUp handlePageType={handlePageType} /> : <SignIn handlePageType={handlePageType} />
+      }
+    </>
   )
 }
