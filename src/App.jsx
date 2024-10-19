@@ -4,6 +4,7 @@ import { Route, Navigate, Routes } from 'react-router-dom'
 import Home from './Pages/Home'
 import Categories from './Pages/Categories'
 import Products from './Pages/Products'
+import ProductDetails from'./Pages/ProductDetailes'
 import Cart from './Pages/Cart'
 import Auth from './Pages/Auth'
 import Search from './Pages/Search'
@@ -21,6 +22,7 @@ export default function App() {
           <Route exact path="/" element={<Home />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/products/:categoryId/:categoryName" element={<Products />} />
+          <Route path="/products-details/:Id/:name" element={<ProductDetails />} />
           <Route path="/cart" element={token ? <Cart /> : <Navigate to={'/auth'} />} />
           <Route path="/auth" element={!token ? <Auth /> : <Navigate to={'/'} />} />
           <Route path="/search" element={<Search />} />
