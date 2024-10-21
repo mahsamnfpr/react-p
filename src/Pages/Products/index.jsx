@@ -103,7 +103,7 @@ export default function Products() {
 
   return (
     <>
-    <Stack sx={{width:"90%", height:'95%', mt:'10px',mb:'10px', overflow:'auto'}}>
+    <Stack sx={{width:"90%", height:'95%', overflow:'auto'}}>
       <Stack my={'10px'}>
         {products.length > 0 ? (
           <>
@@ -125,7 +125,7 @@ export default function Products() {
                   </Select>
                 </FormControl>
               </Box>
-              <Stack direction={'row'} gap={'20px'} mx={'auto'} sx={{ width: '90%' }}>
+              <Stack direction={'row'} gap={'20px'} mx={'auto'} sx={{ width: '90%', mt:'10px'}}>
                 <Typography component={'span'}>Price: </Typography>
                 <Slider
                   getAriaLabel={() => 'Price range'}
@@ -140,7 +140,7 @@ export default function Products() {
                 />
               </Stack>
             </Stack>
-            <Stack justifyContent={'space-around'} gap={'10px'} flexWrap={'wrap'} direction={'row'}>
+            <Stack justifyContent={'space-around'} gap={'10px'} flexWrap={'wrap'} direction={'row'} mt={'20px'}>
               {items}
             </Stack>
           </>
