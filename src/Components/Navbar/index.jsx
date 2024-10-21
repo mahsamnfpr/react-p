@@ -18,6 +18,7 @@ export default function Navbar() {
         bgcolor={'#A6B37D'}
         sx={{
           height: '60px',
+          zIndex:'1000'
           // width: {
           //   xs: '500px', md: '800px'
           // },

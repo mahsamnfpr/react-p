@@ -3,12 +3,10 @@ import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
-import React from 'react'
-
 export default function Footer() {
   return (
     <>
-      <Stack justifyContent={'center'} alignItems={'center'} height={'150px'} bgcolor={'#A6B37D'} color={'#ffff'} >
+      <Stack justifyContent={'center'} alignItems={'center'} height={'150px'} bgcolor={'#A6B37D'} color={'#ffff'} zIndex={'1000'}>
         <Typography component={'p'} sx={{ fontSize: '18px', mt: '15px' }}>
           <PhoneIcon sx={{ color: '#ffff' }} /> 051-38449316</Typography>
         <Typography component={'p'} sx={{ fontSize: '18px' }}>

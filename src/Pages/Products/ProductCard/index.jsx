@@ -6,10 +6,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
+import { Stack } from '@mui/material';
 
 export default function ProductCard({ name, img, price, discount, id }) {
     return (
-        <Card sx={{ width: '350px', height: '450px' }}>
+       
+        <Card sx={{ width: '200px', height: '280px' }}>
             <CardMedia
                 sx={{ width: '100%', height: '50%' }}
                 image={img}

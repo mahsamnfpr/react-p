@@ -8,8 +8,8 @@ export const CategoriesCart = ({ name, img, id }) => {
   return (
     <Box
       sx={{
-        width: '270px',
-        height: '270px',
+        width: '300px',
+        height: '300px',
         borderRadius: '20px',
         overflow: 'hidden',
         position: 'relative',
@@ -76,7 +76,8 @@ export default function Categories() {
 
   return (
     <>
-      <Stack justifyContent={'space-around'} direction={'row'} flexWrap={'wrap'} gap={'10px'} p={3} sx={{mt:10, mb:10}}>
+      <Stack justifyContent={'space-around'} direction={'row'} flexWrap={'wrap'} gap={'15px'}
+      p={3} sx={{overflow:'auto', width:'90%', height:'95%'}}>
         {catItems}
       </Stack>
     </>
