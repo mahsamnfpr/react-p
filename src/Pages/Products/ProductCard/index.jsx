@@ -11,7 +11,7 @@ import { Stack } from '@mui/material';
 export default function ProductCard({ name, img, price, discount, id }) {
     return (
        
-        <Card sx={{ width: '200px', height: '280px' }}>
+        <Card sx={{ width: '270px', height: '270px' }}>
             <CardMedia
                 sx={{ width: '100%', height: '50%' }}
                 image={img}
