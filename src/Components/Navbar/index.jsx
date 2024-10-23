@@ -1,12 +1,18 @@
 import { useSelector, useDispatch } from "react-redux"
 import { logout } from "../../Store/Slices/Auth"
-import { Button, Stack, Typography } from "@mui/material"
+import { Box, Button, Stack, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
+import Badge from '@mui/material/Badge';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
 
 
 export default function Navbar() {
   const { token } = useSelector(state => state.auth)
   const dispatch = useDispatch()
+
+  const listLength = useSelector(state => state.cart.list)?.length
+
   return (
     <>
       <Stack direction={'row'}
@@ -18,7 +24,7 @@ export default function Navbar() {
         bgcolor={'#A6B37D'}
         sx={{
           height: '60px',
-          zIndex:'1000'
+          zIndex: '1000'
           // width: {
           //   xs: '500px', md: '800px'
           // },
@@ -40,6 +46,16 @@ export default function Navbar() {
 
         </Stack>
 
+        <Stack>
+          <Box></Box>
+          <Box>
+            <Link to={'cart'}>
+              <Badge badgeContent={listLength} color="warning">
+                <ShoppingCartIcon />
+              </Badge>
+            </Link>
+          </Box>
+        </Stack>
       </Stack>
     </>
   )

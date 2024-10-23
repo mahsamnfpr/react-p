@@ -15,7 +15,7 @@ export default function ProductCard({ name, img, price, discount, id }) {
             <CardMedia
                 sx={{ width: '100%', height: '50%' }}
                 image={img}
-                title="green iguana"
+                title={name}
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">

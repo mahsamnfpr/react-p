@@ -38,7 +38,7 @@ export default function ProductDetails() {
           >
             <Box sx={{ width: { xs: '80%', md: '50%' }, height: { xs: '40%', md: '70%' } }} alignItems={'center'} justifyContent={'center'}>
               <img style={{ width: '80%', height: '80%', borderRadius: '10px' }}
-                src={import.meta.env.VITE_BASE_URL + product?.Images[0].formats.large.url} alt={product?.Name} />
+                src={import.meta.env.VITE_BASE_URL + product?.Images[0].url} alt={product?.Name} />
             </Box>
             <Stack alignItems={'center'} justifyContent={'center'} gap={'10px'}>
               <Typography variant='h2' component={'h1'} fontSize={'18px'}>
