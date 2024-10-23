@@ -25,7 +25,7 @@ export default function App() {
           <Route path="/product-details/:id/:name" element={<ProductDetails />} />
           <Route path="/cart" element={token ? <Cart /> : <Navigate to={'/auth'} />} />
           <Route path="/auth" element={!token ? <Auth /> : <Navigate to={'/'} />} />
-          <Route path="/search" element={<Search />} />
+          <Route path="/search/:query" element={<Search />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Box>

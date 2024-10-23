@@ -1,5 +1,4 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from "react-redux"
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,9 +6,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import Button from '@mui/material';
-import { TableFooter, Typography } from '@mui/material';
-import { addItem, removeItem, clear } from '../../Store/Slices/Cart';
+import { Button, TableFooter, Typography } from "@mui/material";
+import { addItem, clear, removeItem } from "../../Store/Slices/Cart";
 
 export default function Cart() {
   const { list } = useSelector(state => state.cart)
@@ -48,7 +46,7 @@ export default function Cart() {
     <>
       {list.length > 0 ?
         <>
-          <TableContainer component={Paper}>
+          <TableContainer component={Paper} sx={{width:{xs:'500px', md:'900px'}, ml:{xs:'30px'}}}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
@@ -65,7 +63,7 @@ export default function Cart() {
                 {items}
               </TableBody>
               <TableFooter>
-                <TableCell align="center">ID</TableCell>
+                <TableCell align="center"></TableCell>
                 <TableCell align="center"></TableCell>
                 <TableCell align="center"></TableCell>
                 <TableCell align="center"></TableCell>
