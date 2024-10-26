@@ -68,6 +68,7 @@ export default function Banner() {
                     modifier: 1,
                     slideShadows: true,
                 }}
+                
                 pagination={true}
                 modules={[EffectCoverflow, Pagination]}
                 className="banner"
