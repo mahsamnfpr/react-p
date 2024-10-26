@@ -6,8 +6,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Button, TableFooter, Typography } from "@mui/material";
+import { Box, Button, TableFooter, Typography } from "@mui/material";
 import { addItem, clear, removeItem } from "../../Store/Slices/Cart";
+import { RotatingSquare } from "react-loader-spinner";
 
 export default function Cart() {
   const { list } = useSelector(state => state.cart)
@@ -82,7 +83,17 @@ export default function Cart() {
         </>
         :
         <>
-          <Typography component={'h2'}>Cart is empty</Typography>
+        <Box>
+          <RotatingSquare
+         visible={true}
+         height="100"
+         width="100"
+         color="#A6B37D"
+         ariaLabel="rotating-square-loading"
+         wrapperStyle={{}}
+         wrapperClass=""/>
+         </Box>
+          <Typography component={'h2'}>your cart is empty</Typography>
         </>}
 
     </>
