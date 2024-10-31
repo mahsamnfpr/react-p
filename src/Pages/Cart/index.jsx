@@ -32,7 +32,7 @@ export default function Cart() {
       <TableCell align="center">$ {e?.Price * (1 - e?.Discount / 100) * e.quantity}</TableCell>
       <TableCell align="center">
         <Button sx={{ mx: '10px' }}
-          onClick={() => dispatch(removeItem(e.Id))}
+          onClick={() => dispatch(removeItem(e.id))}
           variant='contained'
           color='error'>-</Button>
         <Button sx={{ mx: '10px' }}
